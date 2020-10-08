@@ -9,12 +9,35 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large" class="main-title"><h2 id="titulo">Localización</h2></ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <p *ngIf="latitudPromesa != null"></p>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title><h5 id="promise">Ubicación Promesa</h5></ion-card-title>
+      </ion-card-header>    
+      <ion-card-content>
+        <div id="primer-parrafo">
+          <p>LATITUD:</p>{{latitudPromesa}}
+          <p>LONGITUD:</p>{{longitudPromesa}}
+        </div>
+        <ion-button class="latitudPromesa" color="primary" expand="block" (click) = "obtenerLocalizacionPromesa()" size="small">Mostrar Datos</ion-button>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title><h5 id="callback">Ubicación CallBack</h5></ion-card-title>
+      </ion-card-header>    
+      <ion-card-content>
+        <div id="segundo-parrafo">
+          <p>LATITUD:</p>{{latitudObservable}}
+          <p>LONGITUD:</p>{{longitudObservable}}
+        </div>
+        <ion-button class="latitudPromesa" color="warning" expand="block" (click) = "obtenerLocalizacionObservable()" size="small">Mostrar Datos</ion-button>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>

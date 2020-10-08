@@ -11,6 +11,7 @@ export class HomePage {
   public longitudPromesa;
   public latitudObservable;
   public longitudObservable;
+  public darkMode: boolean = true;
 
   constructor(private geolocation: Geolocation) 
   {
@@ -38,7 +39,13 @@ export class HomePage {
       this.longitudObservable = data.coords.longitude
       console.log(data);
       
-    })
+    });
   }
+
+  cambio(){
+    // const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    this.darkMode = !this.darkMode;
+      document.body.classList.toggle('dark');
+    }
 
 }
